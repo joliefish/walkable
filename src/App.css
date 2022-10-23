@@ -24,6 +24,22 @@
   color: white;
 }
 
+.App-body {
+  position: absolute!important;
+  /* background-color: #282c34;
+  min-height: 50vh;
+  align-items: center;  
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white; */
+  top: 20%;
+  left: 50%;
+  width: 1000px;
+  height: 300px;
+  margin-top: -50x!important; /*negative half of height*/
+  margin-left: -500px!important; /*negative half of width*/
+}
+
 .App-link {
   color: #61dafb;
 }

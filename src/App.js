@@ -1,6 +1,6 @@
-import mapflat from './mapbg.png';
 import React from 'react';
 import { Map, View } from 'ol';
+// import { transform } from 'ol/proj.js';
 import TileLayer from 'ol/layer/Tile';
 import OSM from 'ol/source/OSM';
 
@@ -16,7 +16,8 @@ function MapView() {
     if (ref.current && !mapRef.current) {
       mapRef.current = new Map({
         layers: [new TileLayer({ source: new OSM() })],
-        view: new View({ center: [0, 0], zoom: 2 }),
+        view: new View({ center: [0, 0], zoom: 4 }),
+        // help pls transform([122.3321, 47.6062], 'WGS84', 'EPSG:4326')
         target: ref.current
       });
     }
@@ -26,20 +27,21 @@ function MapView() {
     mapRef.current?.getView();
   }, [mapRef]);
 
-  return <div ref={ref} style={{ width: "80%", height: "500px" , left: "20%"}} />;
+  return <div ref={ref} style={{ width: "100%", height: "500px"}} />;
 }
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <p> Hello World </p>        
+        <p>Walkable.</p>        
       </header>
-      <div><MapView /></div>
-      <p>
-          Hello World
-          Edit <code>src/App.js</code> and save to reload.
+    <div className="App-body">
+      <div><MapView/></div>
+        <p>
+          Make walking feel safer.
         </p>  
+      </div>
     </div>
   );
   
